@@ -1,3 +1,5 @@
+FROM ubuntu:latest
+
 MAINTAINER Audris Mockus <audris@mockus.org>
 
 USER root
