@@ -26,8 +26,8 @@ RUN apt update && \
 	 python3-pip
 
 #RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen && 
-RUN  pip3 install --upgrade pip && \\
-     pip3 install requests pymongo  
+#RUN  pip3 install --upgrade pip && \\
+#     pip3 install requests pymongo  
 
 ENV LC_ALL=C
 
