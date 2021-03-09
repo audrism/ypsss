@@ -10,7 +10,7 @@ RUN apt update && DEBIAN_FRONTEND='noninteractive' apt install -y  curl gnupg ap
 
 
 RUN apt update && \
-    DEBIAN_FRONTEND='noninteractive' apt install -y locales \
+    DEBIAN_FRONTEND='noninteractive' apt install -y  \
     libssl-dev \
     libcurl4-openssl-dev \
     openssh-server \
@@ -24,10 +24,10 @@ RUN apt update && \
     vim-runtime tmux  zsh zip build-essential \
     python3-dev \
 
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen && \
-    pip3 install --upgrade pip && \\
-    pip3 install requests pymongo  
+#RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen && 
+RUN  pip3 install --upgrade pip && \\
+     pip3 install requests pymongo  
+
 ENV LC_ALL=C
 
 COPY euterpe-ilom_eecs_utk_edu_interm.cer /etc/ssl/ 
