@@ -47,9 +47,9 @@ RUN chmod 0600 -R /etc/sssd/sssd.conf /etc/pam.d/common* /etc/sssd/* && \
 
 # for deployment to the cloud
 ENV NB_USER jovyan
-ENV NB_UID 1000
+ENV NB_UID 9000
 ENV HOME /home/$NB_USER
-RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && mkdir $HOME/.ssh && chown -R $NB_USER:users $HOME 
-COPY id_rsa_gcloud.pub $HOME/.ssh/authorized_keys
-RUN chown -R $NB_USER:users $HOME && chmod -R og-rwx $HOME/.ssh
+RUN useradd -m -s /bin/bash -N -u 9000 jovyan && mkdir /home/jovyan/.ssh && chown -R jovyan:users /home/jovyan 
+COPY id_rsa_gcloud.pub /home/jovyan/.ssh/authorized_keys
+RUN chown -R jovyan:users /home/jovyan && chmod -R og-rwx /home/jovyan/.ssh
 
